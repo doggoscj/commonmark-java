@@ -79,11 +79,6 @@ public class HeadingParser extends AbstractBlockParser {
             return new HeadingParser(level, "");
         }
 
-        char next = line.charAt(start);
-        if (!(next == ' ' || next == '\t')) {
-            return null;
-        }
-
         int beforeSpace = Parsing.skipSpaceTabBackwards(line, line.length() - 1, start);
         int beforeHash = Parsing.skipBackwards('#', line, beforeSpace, start);
         int beforeTrailer = Parsing.skipSpaceTabBackwards(line, beforeHash, start);
